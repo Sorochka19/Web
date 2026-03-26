@@ -1,5 +1,5 @@
 # Web
-Сорочинський Павло Юрійович КВ-32 Лабораторна робота №1 
+Сорочинський Павло Юрійович КВ-32 Лабораторна робота №2 
 Завдання лабораторної роботи:
-розробити статичні Web-сторінки додатку та перевірити коректне їх відображення на екранах різного розміру.
-https://docs.google.com/document/d/1mMDbRuaV2hxvSGzDOo0QgAHqtx6Pu5LwyQ50EZJWujw/edit?usp=sharing
+розробити функціональність для статичних сторінок Web-додатку першої лабораторної роботи із використанням шаблону MVC
+https://docs.google.com/document/d/1cYkvLM-vTii8UnEhLzjt-O8VNH-fL-CJ3WPA3vkZ62c/edit?usp=sharing
