@@ -1,5 +1,5 @@
 # Web
-Сорочинський Павло Юрійович КВ-32 Лабораторна робота №2 
+Сорочинський Павло Юрійович КВ-32 Лабораторна робота №3 
 Завдання лабораторної роботи:
-розробити функціональність для статичних сторінок Web-додатку першої лабораторної роботи із використанням шаблону MVC
-https://docs.google.com/document/d/1cYkvLM-vTii8UnEhLzjt-O8VNH-fL-CJ3WPA3vkZ62c/edit?usp=sharing
+адаптувати програмний код ЛР№2 до вимог фреймворка VueJS та забезпечити завантаження необхідних даних з Web-сервера 
+https://docs.google.com/document/d/1ERxhl4ygBWY7f9XIQdjDwV8HELw5WGgSQeE3dKl4Iow/edit?usp=sharing
