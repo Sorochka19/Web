@@ -1,5 +1,4 @@
 const { createApp } = Vue;
-
 createApp({
     data() {
         return {
@@ -38,7 +37,6 @@ createApp({
             localStorage.removeItem('currentUser');
             window.location.href = 'login.html';
         },
-
         async fetchAlarms() {
             if (!this.currentUser) return;
             try {
@@ -74,7 +72,6 @@ createApp({
         closeAlert() {
             this.alertMessage = null;
         },
-
         checkAlarms() {
             if (!this.currentUser || this.alarms.length === 0) return;
             const now = new Date();
