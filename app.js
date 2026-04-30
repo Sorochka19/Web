@@ -3,21 +3,16 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            // Дані користувача з пам'яті браузера
             currentUser: JSON.parse(localStorage.getItem('currentUser')) || null,
-            
-            // Дані для сторінки будильників
             alarms: [],
             newAlarm: { time: '08:00', date: '', label: '' },
             alertMessage: null,
 
-            // Дані для форм реєстрації та входу
             regForm: { name: '', email: '', password: '', gender: 'male', dob: '' },
             loginForm: { email: '', password: '' }
         }
     },
     methods: {
-        // --- АВТОРИЗАЦІЯ ---
         async register() {
             try {
                 const res = await axios.post('http://localhost:3000/register', this.regForm);
@@ -44,13 +39,11 @@ createApp({
             window.location.href = 'login.html';
         },
 
-        // --- БУДИЛЬНИКИ ---
         async fetchAlarms() {
             if (!this.currentUser) return;
             try {
                 const res = await axios.get(`http://localhost:3000/alarms/${this.currentUser.email}`);
                 this.alarms = res.data;
-                // Перетворюємо 1 і 0 з SQLite на true і false для перемикачів
                 this.alarms.forEach(a => a.isActive = !!a.isActive);
             } catch (error) {
                 console.error("Помилка завантаження будильників", error);
@@ -75,14 +68,13 @@ createApp({
                 await axios.put(`http://localhost:3000/alarms/${alarm.id}`, { isActive: alarm.isActive });
             } catch (error) {
                 console.error("Помилка оновлення статусу", error);
-                alarm.isActive = !alarm.isActive; // Повертаємо назад у разі помилки
+                alarm.isActive = !alarm.isActive; 
             }
         },
         closeAlert() {
             this.alertMessage = null;
         },
 
-        // --- ФОНОВИЙ ТАЙМЕР ---
         checkAlarms() {
             if (!this.currentUser || this.alarms.length === 0) return;
             const now = new Date();
@@ -95,16 +87,14 @@ createApp({
                 this.alarms.forEach(alarm => {
                     if (alarm.isActive && alarm.time === currentTime && (!alarm.date || alarm.date === currentDate)) {
                         this.alertMessage = `Спрацював ваш будильник на ${alarm.time} (${alarm.label || 'Без назви'})`;
-                        this.toggleAlarm(alarm); // Автоматично вимикаємо після спрацювання
+                        this.toggleAlarm(alarm); 
                     }
                 });
             }
         }
     },
     mounted() {
-        // Автоматично завантажуємо будильники при відкритті сторінки
         this.fetchAlarms();
-        // Запускаємо перевірку часу кожну секунду
         setInterval(() => this.checkAlarms(), 1000);
     }
 }).mount('#app');
